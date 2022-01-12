@@ -6,7 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.LauncherCommand;
+import frc.robot.commands.LaunchCargo;
 import frc.robot.subsystems.LauncherSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -20,9 +20,9 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final LauncherSubsystem m_launcherSubsystem = new LauncherSubsystem();
-  private final LauncherCommand m_autoCommand = new LauncherCommand(m_launcherSubsystem);
+  private final LaunchCargo m_autoCommand = new LaunchCargo(m_launcherSubsystem);
   
-  /** Taken from the Gearbot example. Controller ID value (0) but probably set to (1) with two controllers */
+  // Driver Controller ID value (0) but probably set to (1) if using two controllers
   private final XboxController m_joystick = new XboxController(0); 
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -38,29 +38,15 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    
-    // Values taken from the Gearbot
-    final JoystickButton l1 = new JoystickButton(m_joystick, 11); 
-    
-    /* Other joystick buttons for reference only at this point
-    final JoystickButton dpadUp = new JoystickButton(m_joystick, 5);
-    final JoystickButton dpadRight = new JoystickButton(m_joystick, 6);
-    final JoystickButton dpadDown = new JoystickButton(m_joystick, 7);
-    final JoystickButton dpadLeft = new JoystickButton(m_joystick, 8);
     final JoystickButton l2 = new JoystickButton(m_joystick, 9);
     final JoystickButton r2 = new JoystickButton(m_joystick, 10);
     final JoystickButton l1 = new JoystickButton(m_joystick, 11);
     final JoystickButton r1 = new JoystickButton(m_joystick, 12);
-    */
+    
 
     // Connect the buttons to commands
-    l1.whenPressed(new LauncherCommand(m_launcher));
+    l1.whenPressed(new LaunchCargo(m_launcherSubsystem));
 
-    // These are reference examples from the Gearbot
-    // dpadUp.whenPressed(new SetElevatorSetpoint(0.25, m_elevator));
-    // dpadDown.whenPressed(new SetElevatorSetpoint(0.0, m_elevator));
-    // dpadRight.whenPressed(new CloseClaw(m_claw));
-    // dpadLeft.whenPressed(new OpenClaw(m_claw));
     /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
