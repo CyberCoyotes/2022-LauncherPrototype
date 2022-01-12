@@ -3,22 +3,21 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+// Shuffleboard imports
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInLayouts; // Displaying data?
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard; // Displaying data?
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab; // Displaying data?
 
-import com.ctre.phoenix.motorcontrol.ControlMode; // Added for Talons
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX; // Added for Talons
-
-
+// CTRE imports
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.TalonFXSensorCollection;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+// import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 // import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-// import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+// import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import com.ctre.phoenix.motorcontrol.TalonFXSensorCollection;
 
 public class LauncherSubsystem extends SubsystemBase {
 
