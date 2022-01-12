@@ -22,9 +22,9 @@ public class RobotContainer {
   private final LauncherSubsystem m_launcherSubsystem = new LauncherSubsystem();
   private final LauncherCommand m_autoCommand = new LauncherCommand(m_launcherSubsystem);
   
-  private final XboxController m_joystick = new XboxController(0) // Taken from the Gearbot example
-
-
+  /** Taken from the Gearbot example. Controller ID value (0) but probably set to (1) with two controllers */
+  private final XboxController m_joystick = new XboxController(0); 
+  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -51,7 +51,7 @@ public class RobotContainer {
     */
 
     // Connect the buttons to commands
-    l1.whenPressed(new LauncherSubsystem(1,);)
+    // l1.whenPressed(new LauncherSubsystem(m_launcher));
 
     // These are reference examples from the Gearbot
     // dpadUp.whenPressed(new SetElevatorSetpoint(0.25, m_elevator));
