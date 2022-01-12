@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.LauncherConstants;
 
 // Shuffleboard imports
 // import edu.wpi.first.wpilibj.shuffleboard.BuiltInLayouts; // Displaying data?
@@ -26,13 +27,18 @@ public class LauncherSubsystem extends SubsystemBase {
   // Falcon 500 is controlled by TalonFX
   // These are the two motors for launching the cargo
   // This might need to go in the subsystem below
-  // private final WPI_TalonFX leftTalon;
-  // private final WPI_TalonFX rightTalon;
-  private final MotorController m_launchMotors = 
-    new MotorControllerGroup(new WPI_TalonFX(1), new WPI_TalonFX(2));
 
-  /** Creates a new Subsystem. */
+  private final MotorController m_LauncherMotors = 
+    new MotorControllerGroup(
+      new WPI_TalonFX(LauncherConstants.leftLaunchMotor), 
+      new WPI_TalonFX(LauncherConstants.rightLaunchMotor));
+
+  /** Launches the Cargo **/
   public LauncherSubsystem() {
+    
+  }
+
+  public void launchCargo() {
     
   }
 
