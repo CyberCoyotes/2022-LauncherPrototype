@@ -7,20 +7,22 @@ package frc.robot.commands;
 import frc.robot.subsystems.LauncherSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
+// Change from m_subsystem references to m_launcher in command
+
 /** An example command that uses an example subsystem. */
 public class LauncherCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final LauncherSubsystem m_subsystem;
+  private final LauncherSubsystem m_launcher; 
 
   /**
    * Creates a new ExampleCommand.
    *
-   * @param subsystem The subsystem used by this command.
+   * @param launcher The subsystem used by this command.
    */
-  public LauncherCommand(LauncherSubsystem subsystem) {
-    m_subsystem = subsystem;
+  public LauncherCommand(LauncherSubsystem launcher) {
+    m_launcher = launcher;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+    addRequirements(m_launcher);
   }
 
   // Called when the command is initially scheduled.
