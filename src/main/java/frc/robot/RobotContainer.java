@@ -38,7 +38,10 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    final JoystickButton l1 = new JoystickButton(m_joystick, 11); // Values taken from the Gearbot
+    
+    // Values taken from the Gearbot
+    final JoystickButton l1 = new JoystickButton(m_joystick, 11); 
+    
     /* Other joystick buttons for reference only at this point
     final JoystickButton dpadUp = new JoystickButton(m_joystick, 5);
     final JoystickButton dpadRight = new JoystickButton(m_joystick, 6);
@@ -51,7 +54,7 @@ public class RobotContainer {
     */
 
     // Connect the buttons to commands
-    // l1.whenPressed(new LauncherSubsystem(m_launcher));
+    l1.whenPressed(new LauncherCommand(m_launcher));
 
     // These are reference examples from the Gearbot
     // dpadUp.whenPressed(new SetElevatorSetpoint(0.25, m_elevator));

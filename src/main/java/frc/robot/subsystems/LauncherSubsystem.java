@@ -3,6 +3,8 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
+import edu.wpi.first.wpilibj.motorcontrol.MotorController;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 // Shuffleboard imports
@@ -24,9 +26,11 @@ public class LauncherSubsystem extends SubsystemBase {
   // Falcon 500 is controlled by TalonFX
   // These are the two motors for launching the cargo
   // This might need to go in the subsystem below
-  private final WPI_TalonFX leftTalon = new WPI_TalonFX(1);
-  private final WPI_TalonFX rightTalon = new WPI_TalonFX(2);
-  
+  // private final WPI_TalonFX leftTalon;
+  // private final WPI_TalonFX rightTalon;
+  private final MotorController m_launchMotors = 
+    new MotorControllerGroup(new WPI_TalonFX(1), new WPI_TalonFX(2));
+
   /** Creates a new Subsystem. */
   public LauncherSubsystem() {
     
