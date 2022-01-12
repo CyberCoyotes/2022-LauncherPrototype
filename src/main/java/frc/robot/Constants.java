@@ -18,8 +18,8 @@ public final class Constants {
 
     // These two motors are used to launch the CARGO
     public static final class LauncherConstants {
-        public static final int leftLaunchMotor = 1; // Sets the left launcher motor ID value
-        public static final int rightLaunchMotor = 2; // Sets the left launcher motor ID value
+        // public static final int leftLaunchMotor = 2; // Sets the left launcher motor ID value
+        public static final int rightLaunchMotor = 1; // Sets the left launcher motor ID value  
     }
 }
 

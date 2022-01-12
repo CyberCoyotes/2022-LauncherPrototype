@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.LauncherConstants;
 
 // Shuffleboard imports
@@ -30,16 +31,18 @@ public class LauncherSubsystem extends SubsystemBase {
 
   private final MotorController m_LauncherMotors = 
     new MotorControllerGroup(
-      new WPI_TalonFX(LauncherConstants.leftLaunchMotor), 
+      // new WPI_TalonFX(LauncherConstants.leftLaunchMotor), 
       new WPI_TalonFX(LauncherConstants.rightLaunchMotor));
 
+  
   /** Launches the Cargo **/
   public LauncherSubsystem() {
     
   }
 
   public void launchCargo() {
-    
+    double speed = 0.5;
+    m_LauncherMotors.set(0.25);
   }
 
   @Override

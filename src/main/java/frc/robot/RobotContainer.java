@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.Constants.LauncherConstants;
 import frc.robot.commands.LaunchCargo;
 import frc.robot.subsystems.LauncherSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -46,6 +47,8 @@ public class RobotContainer {
 
     // Connect the buttons to commands
     l1.whenPressed(new LaunchCargo(m_launcherSubsystem));
+    r1.whenPressed(new LaunchCargo(m_launcherSubsystem));
+
 
     /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
@@ -55,6 +58,7 @@ public class RobotContainer {
   }
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
+    new LaunchCargo(m_launcherSubsystem);
     return m_autoCommand;
   }
 }
