@@ -31,28 +31,33 @@ public class LauncherSubsystem extends SubsystemBase {
 
   private final MotorController m_LauncherMotors = 
     new MotorControllerGroup(
-      // new WPI_TalonFX(LauncherConstants.leftLaunchMotor), 
+      new WPI_TalonFX(LauncherConstants.leftLaunchMotor), 
       new WPI_TalonFX(LauncherConstants.rightLaunchMotor));
-
-  
-  /** Launches the Cargo **/
-  public LauncherSubsystem() {
     
+    MotorController m_rightLaunchMotor; //Needed to setInverted
+
+    public LauncherSubsystem() {
+     m_rightLaunchMotor.setInverted(true);
+
   }
 
+  /** Launches the Cargo with speed set for low hub
+    *  Eventually the absolute value could be replaced with sensor-driven values
+    **/
   public void launchCargo() {
-    // Speed to launch the Cargo for Low Hub
-    // Eventually the absolute value could be replaced with sensor-driven values
     double cargoSpeed = 0.25;
     m_LauncherMotors.set(cargoSpeed);
   }
 
-  public void launchCargoHigh() {
-    // Speed to launch the Cargo for High Hub
+  // Speed to launch the Cargo for High Hub
     // Eventually the absolute value could be replaced with sensor-driven values
+
+  public void launchCargoHigh() {
     double cargoSpeed = 0.50;
     m_LauncherMotors.set(cargoSpeed);
   }
+
+  // Shaun or Jackson: Create an action to "releaseCargo" if needed by the drive team
 
   @Override
   public void periodic() {

@@ -13,14 +13,10 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    // Just following the basic setup of sample code. 
-    // Motors also need to be assigned in the CTRE Phoenix Tuner
-
-    // These two motors are used to launch the CARGO
+    // Motors need to be assigned in the CTRE Phoenix Tuner
+    // Two motors are used to launch the "Cargo"
     public static final class LauncherConstants {
-        // public static final int leftLaunchMotor = 2; // Sets the left launcher motor ID value
+        public static final int leftLaunchMotor = 2; // Sets the left launcher motor ID value
         public static final int rightLaunchMotor = 1; // Sets the left launcher motor ID value  
     }
 }
-
-// Need to "Add https://docs.ctre-phoenix.com/en/stable/ch05a_CppJava.html
