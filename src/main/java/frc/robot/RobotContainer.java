@@ -40,14 +40,14 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    final JoystickButton l2 = new JoystickButton(m_joystick, 9);
-    final JoystickButton r2 = new JoystickButton(m_joystick, 10);
+    // final JoystickButton l2 = new JoystickButton(m_joystick, 9);
+    // final JoystickButton r2 = new JoystickButton(m_joystick, 10);
     final JoystickButton l1 = new JoystickButton(m_joystick, 11);
     final JoystickButton r1 = new JoystickButton(m_joystick, 12);
     
 
     // Connect the buttons to commands
-    
+
     l1.whenHeld(new LaunchCargo(m_launcherSubsystem));
     r1.whenHeld(new LaunchCargoHigh(m_launcherSubsystem));
 
