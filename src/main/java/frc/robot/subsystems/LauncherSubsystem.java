@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.LauncherConstants;
+import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 // Shuffleboard imports
 // import edu.wpi.first.wpilibj.shuffleboard.BuiltInLayouts; // Displaying data?
@@ -30,21 +32,18 @@ public class LauncherSubsystem extends SubsystemBase {
 
   private final MotorController m_LauncherMotors = 
     new MotorControllerGroup(
-      new WPI_TalonFX(LauncherConstants.leftLaunchMotor), 
+      // new WPI_TalonFX(LauncherConstants.leftLaunchMotor),
       new WPI_TalonFX(LauncherConstants.rightLaunchMotor));
+  
+      final TalonFXInvertType rightLaunchMotor = TalonFXInvertType.CounterClockwise;
     
-    MotorController m_rightLaunchMotor; //Needed to setInverted
-
-    public LauncherSubsystem() {
-     m_rightLaunchMotor.setInverted(true);
-
-  }
+  public LauncherSubsystem() {}
 
   /** Launches the Cargo with speed set for low hub
     * Eventually the absolute value could be replaced with sensor-driven values
     **/
   public void launchCargo() {
-    double cargoSpeed = 0.25;
+    double cargoSpeed = 0.10;
     m_LauncherMotors.set(cargoSpeed);
   }
 
