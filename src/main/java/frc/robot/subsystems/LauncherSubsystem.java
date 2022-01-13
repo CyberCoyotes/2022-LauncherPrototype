@@ -41,8 +41,17 @@ public class LauncherSubsystem extends SubsystemBase {
   }
 
   public void launchCargo() {
-    double speed = 0.5;
-    m_LauncherMotors.set(0.25);
+    // Speed to launch the Cargo for Low Hub
+    // Eventually the absolute value could be replaced with sensor-driven values
+    double cargoSpeed = 0.25;
+    m_LauncherMotors.set(cargoSpeed);
+  }
+
+  public void launchCargoHigh() {
+    // Speed to launch the Cargo for High Hub
+    // Eventually the absolute value could be replaced with sensor-driven values
+    double cargoSpeed = 0.50;
+    m_LauncherMotors.set(cargoSpeed);
   }
 
   @Override
