@@ -46,22 +46,19 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
     private void configureButtonBindings() {
-      // final JoystickButton l2 = new JoystickButton(m_joystick, 9);
-      // final JoystickButton r2 = new JoystickButton(m_joystick, 10);
 
-      // Launch the Cargo when left bumper is held
+      //declaring buttons on controller
+      
       final JoystickButton r1 = new JoystickButton(m_joystick, Button.kRightBumper.value);
       final JoystickButton l1 = new JoystickButton(m_joystick, Button.kLeftBumper.value);
-    
 
       // Connect the buttons to commands
-      //this is working to start falcon, does not stop motor upon button release though
+      // Launch the Cargo when either left bumper or right bumper is held
+      // left bumper = low shot, right bumper = high shot
+      //this is working to start falcon motors, but does not stop motor upon button release like it should 
       l1.whileHeld(new LaunchCargo(m_launcherSubsystem));
-      // l1.whenReleased());
       r1.whenHeld(new LaunchCargoHigh(m_launcherSubsystem));
 
-  
-      
     /** Use this to pass the autonomous command to the main {@link Robot} class.
     * @return the command to run in autonomous
    */
