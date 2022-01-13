@@ -55,6 +55,11 @@ public class LauncherSubsystem extends SubsystemBase {
     m_LauncherMotors.set(cargoSpeed);
   }
 
+  public void stopLaunch(){
+    double cargoSpeed = 0;
+    m_LauncherMotors.set(cargoSpeed);
+  }
+
   // Shaun or Jackson: Create an action to "releaseCargo" if needed by the drive team
 
   @Override
