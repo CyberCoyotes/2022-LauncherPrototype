@@ -58,7 +58,7 @@ public class RobotContainer {
       //this is working to start falcon, does not stop motor upon button release though
       l1.whileHeld(new LaunchCargo(m_launcherSubsystem));
       // l1.whenReleased());
-      // r1.whenHeld(new LaunchCargoHigh(m_launcherSubsystem));
+      r1.whenHeld(new LaunchCargoHigh(m_launcherSubsystem));
 
   
       
