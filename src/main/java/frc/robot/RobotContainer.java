@@ -58,7 +58,7 @@ public class RobotContainer {
       // left bumper = low shot, right bumper = high shot
       /* We tried whileHeld command initially, but it only starts the motors, it does not stop the motors automatically
       upon button release as it should */
-      //this is working to start falcon motors
+      //this is working to start falcon motors when button held
       l1.whenHeld(new LaunchCargo(m_launcherSubsystem));
       r1.whenHeld(new LaunchCargoHigh(m_launcherSubsystem));
       //added a when button released command until we have whileHeld working as it should
