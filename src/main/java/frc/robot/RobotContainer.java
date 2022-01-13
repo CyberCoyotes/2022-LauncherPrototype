@@ -30,8 +30,8 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
-    configureButtonBindings();
-  }
+      configureButtonBindings();
+    }
 
   /**
    * Use this method to define your button->command mappings. Buttons can be created by
@@ -39,25 +39,23 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {
-    // final JoystickButton l2 = new JoystickButton(m_joystick, 9);
-    // final JoystickButton r2 = new JoystickButton(m_joystick, 10);
-    final JoystickButton l1 = new JoystickButton(m_joystick, 11);
-    final JoystickButton r1 = new JoystickButton(m_joystick, 12);
+    private void configureButtonBindings() {
+      // final JoystickButton l2 = new JoystickButton(m_joystick, 9);
+      // final JoystickButton r2 = new JoystickButton(m_joystick, 10);
+      final JoystickButton l1 = new JoystickButton(m_joystick, 11);
+      final JoystickButton r1 = new JoystickButton(m_joystick, 12);
     
 
-    // Connect the buttons to commands
+      // Connect the buttons to commands
+      l1.whenHeld(new LaunchCargo(m_launcherSubsystem));
+      r1.whenHeld(new LaunchCargoHigh(m_launcherSubsystem));
 
-    l1.whenHeld(new LaunchCargo(m_launcherSubsystem));
-    r1.whenHeld(new LaunchCargoHigh(m_launcherSubsystem));
-
-
-    /**
-   * Use this to pass the autonomous command to the main {@link Robot} class.
-   *
-   * @return the command to run in autonomous
+    
+    /** Use this to pass the autonomous command to the main {@link Robot} class.
+    * @return the command to run in autonomous
    */
   }
+
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     new LaunchCargo(m_launcherSubsystem);
