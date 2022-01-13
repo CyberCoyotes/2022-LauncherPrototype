@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 // import frc.robot.Constants.LauncherConstants;
 import frc.robot.commands.LaunchCargo;
+import frc.robot.commands.LaunchCargoHigh;
 import frc.robot.subsystems.LauncherSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -46,8 +47,8 @@ public class RobotContainer {
     
 
     // Connect the buttons to commands
-    l1.whenPressed(new LaunchCargo(m_launcherSubsystem));
-    r1.whenPressed(new LaunchCargo(m_launcherSubsystem));
+    l1.whenHeld(new LaunchCargo(m_launcherSubsystem));
+    r1.whenHeld(new LaunchCargoHigh(m_launcherSubsystem));
 
 
     /**
