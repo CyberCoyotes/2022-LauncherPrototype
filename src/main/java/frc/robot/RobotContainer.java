@@ -6,6 +6,8 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import static edu.wpi.first.wpilibj.XboxController.Button;
+
 // import frc.robot.Constants.LauncherConstants;
 import frc.robot.commands.LaunchCargo;
 import frc.robot.commands.LaunchCargoHigh;
@@ -20,18 +22,22 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
+  // Robot Subsystems 
   private final LauncherSubsystem m_launcherSubsystem = new LauncherSubsystem();
+  // Robot Commands
   private final LaunchCargo m_autoCommand = new LaunchCargo(m_launcherSubsystem);
+
   
   // Driver Controller ID value (0) but probably set to (1) if using two controllers
   private final XboxController m_joystick = new XboxController(0); 
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+  
     // Configure the button bindings
-      configureButtonBindings();
-    }
+    configureButtonBindings();
+
+  }  
 
   /**
    * Use this method to define your button->command mappings. Buttons can be created by
@@ -42,15 +48,20 @@ public class RobotContainer {
     private void configureButtonBindings() {
       // final JoystickButton l2 = new JoystickButton(m_joystick, 9);
       // final JoystickButton r2 = new JoystickButton(m_joystick, 10);
-      final JoystickButton l1 = new JoystickButton(m_joystick, 11);
-      final JoystickButton r1 = new JoystickButton(m_joystick, 12);
+
+      // Launch the Cargo when left bumper is held
+      final JoystickButton r1 = new JoystickButton(m_joystick, Button.kRightBumper.value);
+      final JoystickButton l1 = new JoystickButton(m_joystick, Button.kLeftBumper.value);
     
 
       // Connect the buttons to commands
-      l1.whenHeld(new LaunchCargo(m_launcherSubsystem));
-      r1.whenHeld(new LaunchCargoHigh(m_launcherSubsystem));
+      //this is working to start falcon, does not stop motor upon button release though
+      l1.whileHeld(new LaunchCargo(m_launcherSubsystem));
+      // l1.whenReleased());
+      // r1.whenHeld(new LaunchCargoHigh(m_launcherSubsystem));
 
-    
+  
+      
     /** Use this to pass the autonomous command to the main {@link Robot} class.
     * @return the command to run in autonomous
    */
