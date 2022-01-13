@@ -11,6 +11,7 @@ import static edu.wpi.first.wpilibj.XboxController.Button;
 // import frc.robot.Constants.LauncherConstants;
 import frc.robot.commands.LaunchCargo;
 import frc.robot.commands.LaunchCargoHigh;
+import frc.robot.commands.StopLaunch;
 import frc.robot.subsystems.LauncherSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -55,9 +56,13 @@ public class RobotContainer {
       // Connect the buttons to commands
       // Launch the Cargo when either left bumper or right bumper is held
       // left bumper = low shot, right bumper = high shot
-      //this is working to start falcon motors, but does not stop motor upon button release like it should 
-      l1.whileHeld(new LaunchCargo(m_launcherSubsystem));
+      //this is working to start falcon motors, but does not stop motor upon button release automatically like it should 
+      l1.whenHeld(new LaunchCargo(m_launcherSubsystem));
       r1.whenHeld(new LaunchCargoHigh(m_launcherSubsystem));
+      //added a when button released command until we have whileHeld working as it should
+      l1.whenReleased(new StopLaunch(m_launcherSubsystem));
+      r1.whenReleased(new StopLaunch(m_launcherSubsystem));
+
 
     /** Use this to pass the autonomous command to the main {@link Robot} class.
     * @return the command to run in autonomous
