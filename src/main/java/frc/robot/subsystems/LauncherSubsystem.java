@@ -43,7 +43,7 @@ public class LauncherSubsystem extends SubsystemBase {
     * Eventually the absolute value could be replaced with sensor-driven values
     **/
   public void launchCargo() {
-    double cargoSpeed = 0.10;
+    double cargoSpeed = 0.20;
     m_LauncherMotors.set(cargoSpeed);
   }
 

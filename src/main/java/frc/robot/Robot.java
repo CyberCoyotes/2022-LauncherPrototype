@@ -4,12 +4,12 @@
 
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
+// import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.Constants;
+// import frc.robot.Constants;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -32,7 +32,8 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 
-    final TalonFXInvertType rightLaunchMotor = TalonFXInvertType.CounterClockwise;
+    // Tried and didn't work
+    // final TalonFXInvertType rightLaunchMotor = TalonFXInvertType.CounterClockwise;
     
 
   }

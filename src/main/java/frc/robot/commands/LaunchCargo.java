@@ -32,16 +32,25 @@ public class LaunchCargo extends CommandBase {
   @Override
   public void initialize() {
     m_launcherSubsystem.launchCargo();
-  }
+    }
+    
 
     // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+
+  }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-        
+    // Connors Code - not sure about code location
+    // Intersting that adding it here also works for the High cargo?!
+    // m_launcherSubsystem.setDefaultCommand(new StopLaunch(m_launcherSubsystem));
+    
+    // This is more like the Hatchbot example online
+    // LauncherSubsystem.setDefaultCommand(StopLaunch);
+
   }
 
   // Returns true when the command should end.
