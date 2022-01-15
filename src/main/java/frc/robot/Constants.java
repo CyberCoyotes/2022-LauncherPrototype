@@ -16,8 +16,9 @@ public final class Constants {
     // Motors need to be assigned in the CTRE Phoenix Tuner
     // Two motors are used to launch the "Cargo"
     public static final class LauncherConstants {
-        // public static final int leftLaunchMotor = 2; // Sets the left launcher motor ID value
+        public static final int leftLaunchMotor = 2; // Sets the left launcher motor ID value
         public static final int rightLaunchMotor = 1; // Sets the right launcher motor ID value  
+
     }
 
 }
