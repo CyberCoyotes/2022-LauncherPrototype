@@ -1,0 +1,20 @@
+High hoop
+
+	top = .30
+	bottom = -.60
+
+	shot went 13ft
+
+	top = .30
+	bottom = -.40
+
+	shot went 7ft
+
+Low Hoop
+
+	top = .30
+	bottom = -.30
+	
+	lil flip shot
+
+Servo to change angle from high/low hoops

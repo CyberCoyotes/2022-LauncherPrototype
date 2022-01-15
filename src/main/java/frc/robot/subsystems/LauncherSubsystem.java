@@ -45,7 +45,7 @@ public class LauncherSubsystem extends SubsystemBase {
     **/
   public void launchCargo() {
     double cargoSpeedTop = 0.30;
-    double cargoSpeedBottom = -0.60;
+    double cargoSpeedBottom = -0.40;
     m_LauncherMotorTop.set(cargoSpeedTop);
     m_LauncherMotorBottom.set(cargoSpeedBottom);
   }
