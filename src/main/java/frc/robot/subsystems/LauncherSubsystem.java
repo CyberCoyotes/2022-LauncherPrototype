@@ -32,10 +32,13 @@ public class LauncherSubsystem extends SubsystemBase {
 
   private final MotorController m_LauncherMotors = 
     new MotorControllerGroup(
-      // new WPI_TalonFX(LauncherConstants.leftLaunchMotor),
+      new WPI_TalonFX(LauncherConstants.leftLaunchMotor),
       new WPI_TalonFX(LauncherConstants.rightLaunchMotor));
-  
-      final TalonFXInvertType rightLaunchMotor = TalonFXInvertType.CounterClockwise;
+
+      // invert commands are not working for some reason 
+      //final TalonFXInvertType rightLaunchMotor = TalonFXInvertType.CounterClockwise;
+      //final TalonFXInvertType leftLaunchMotor = TalonFXInvertType.Clockwise;
+
     
   public LauncherSubsystem() {}
 
