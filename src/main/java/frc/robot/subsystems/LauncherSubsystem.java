@@ -40,9 +40,9 @@ public class LauncherSubsystem extends SubsystemBase {
   
     
   public LauncherSubsystem() {}
-  // Errors with this m_leftLaunchMotor.setInverted(true);
+  // Errors with this example m_leftLaunchMotor.setInverted(true);
   
-  // Seems accurate but not doing anything
+  // Seems accurate but not doing anything when last tested
   final TalonFXInvertType rightLaunchMotor = TalonFXInvertType.CounterClockwise;
 
   /** Launches the Cargo with speed set for low hub
@@ -65,8 +65,6 @@ public class LauncherSubsystem extends SubsystemBase {
     double cargoSpeed = 0;
     m_LauncherMotors.set(cargoSpeed);
   }
-
-  // Shaun or Jackson: Create an action to "releaseCargo" if needed by the drive team
 
   @Override
   public void periodic() {
