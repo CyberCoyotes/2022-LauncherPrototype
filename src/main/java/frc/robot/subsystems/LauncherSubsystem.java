@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.LauncherConstants;
-import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
+//import com.ctre.phoenix.motorcontrol.TalonFXInvertType;
 // import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 // Shuffleboard imports
@@ -30,10 +30,8 @@ public class LauncherSubsystem extends SubsystemBase {
   // These are the two motors for launching the cargo
   // This might need to go in the subsystem below
 
-  private final MotorController m_LauncherMotors = 
-    new MotorControllerGroup(
-      new WPI_TalonFX(LauncherConstants.leftLaunchMotor),
-      new WPI_TalonFX(LauncherConstants.rightLaunchMotor));
+  private final MotorController m_LauncherMotorTop = new WPI_TalonFX(LauncherConstants.topLaunchMotor);
+  private final MotorController m_LauncherMotorBottom = new WPI_TalonFX(LauncherConstants.bottomLaunchMotor);
 
       // invert commands are not working for some reason 
       //final TalonFXInvertType rightLaunchMotor = TalonFXInvertType.CounterClockwise;
@@ -46,21 +44,27 @@ public class LauncherSubsystem extends SubsystemBase {
     * Eventually the absolute value could be replaced with sensor-driven values
     **/
   public void launchCargo() {
-    double cargoSpeed = 0.20;
-    m_LauncherMotors.set(cargoSpeed);
+    double cargoSpeedTop = 0.30;
+    double cargoSpeedBottom = -0.60;
+    m_LauncherMotorTop.set(cargoSpeedTop);
+    m_LauncherMotorBottom.set(cargoSpeedBottom);
   }
 
   /** Speed to launch the Cargo for High Hub
     * Eventually the absolute value could be replaced with sensor-driven values
     **/
   public void launchCargoHigh() {
-    double cargoSpeed = 0.30;
-    m_LauncherMotors.set(cargoSpeed);
+    double cargoSpeedTop = 0.30;
+    double cargoSpeedBottom = -0.30;
+    m_LauncherMotorTop.set(cargoSpeedTop);
+    m_LauncherMotorBottom.set(cargoSpeedBottom);
   }
 
   public void stopLaunch(){
-    double cargoSpeed = 0;
-    m_LauncherMotors.set(cargoSpeed);
+    double cargoSpeedTop = 0;
+    double cargoSpeedBottom = 0;
+    m_LauncherMotorTop.set(cargoSpeedTop);
+    m_LauncherMotorBottom.set(cargoSpeedBottom);
   }
 
   // Shaun or Jackson: Create an action to "releaseCargo" if needed by the drive team
